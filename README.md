@@ -34,3 +34,6 @@ Project Architecture :
 ![im5](readme_im/normalized_7.png)
 </center>
 
+
+
+NOTE: I've added the MIT LICENSE to the repo. Anyone is free to use this code in accordance with the MIT LICENSE 
