@@ -25,14 +25,12 @@ Project Architecture :
 
 ### Output
 
-<center>
 ![im1](readme_im/ac1.png)
 ![im2](readme_im/bk1.png)
 ![im3](readme_im/bk2.png)
 ![im4](readme_im/dollar1.png)
 ![im5](readme_im/sbb3.png)
 ![im5](readme_im/normalized_7.png)
-</center>
 
 
 
