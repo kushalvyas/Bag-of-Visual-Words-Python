@@ -29,8 +29,6 @@ class BOV:
 
         """
 
-
-
         # read file. prepare file lists.
         self.images, self.trainImageCount = self.file_helper.getFiles(self.train_path)
         # extract SIFT Features from each image
@@ -61,7 +59,7 @@ class BOV:
         self.bov_helper.train(self.train_labels)
 
 
-    def recognize(self,test_img,    test_image_path=None):
+    def recognize(self,test_img, test_image_path=None):
 
         """ 
         This method recognizes a single image 
@@ -71,18 +69,23 @@ class BOV:
         """
 
         kp, des = self.im_helper.features(test_img)
+        # print kp
+        print des.shape
 
         # generate vocab for test image
-        vocab = np.array( [ 0 for i in range(self.no_clusters)])
+        vocab = np.array( [[ 0 for i in range(self.no_clusters)]])
         # locate nearest clusters for each of 
         # the visual word (feature) present in the image
         
         # test_ret =<> return of kmeans nearest clusters for N features
         test_ret = self.bov_helper.kmeans_obj.predict(des)
+        # print test_ret
 
+        # print vocab
         for each in test_ret:
-            vocab[each] += 1
+            vocab[0][each] += 1
 
+        print vocab
         # Scale the features
         vocab = self.bov_helper.scale.transform(vocab)
 
@@ -109,7 +112,10 @@ class BOV:
         for word, imlist in self.testImages.iteritems():
             print "processing " ,word
             for im in imlist:
+                # print imlist[0].shape, imlist[1].shape
+                print im.shape
                 cl = self.recognize(im)
+                print cl
                 predictions.append({
                     'image':im,
                     'class':cl,
@@ -141,7 +147,7 @@ if __name__ == '__main__':
     parser.add_argument('--test_path', action="store", dest="test_path", required=True)
 
     args =  vars(parser.parse_args())
-    # print args
+    print args
 
     
     bov = BOV(no_clusters=100)
