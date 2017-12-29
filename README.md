@@ -19,7 +19,7 @@ Project Architecture :
 		|- Bag.py 
 
 
-	:~$ python Bag.py --train_set images/train/ --test_set images/test/
+	:~$ python Bag.py --train_path images/train/ --test_path images/test/
 
 
 
