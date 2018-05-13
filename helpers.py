@@ -51,14 +51,15 @@ class BOVHelpers:
 		self.mega_histogram = np.array([np.zeros(self.n_clusters) for i in range(n_images)])
 		old_count = 0
 		for i in range(n_images):
-			l = len(descriptor_list[i])
-			for j in range(l):
-				if kmeans_ret is None:
-					idx = self.kmeans_ret[old_count+j]
-				else:
-					idx = kmeans_ret[old_count+j]
-				self.mega_histogram[i][idx] += 1
-			old_count += l
+			if descriptor_list[i] is not None:
+				l = len(descriptor_list[i])
+				for j in range(l):
+					if kmeans_ret is None:
+						idx = self.kmeans_ret[old_count+j]
+					else:
+						idx = kmeans_ret[old_count+j]
+					self.mega_histogram[i][idx] += 1
+				old_count += l
 		print "Vocabulary Histogram Generated"
 
 	def standardize(self, std=None):
