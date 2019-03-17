@@ -140,7 +140,7 @@ class FileHelpers:
 			word = each.split("/")[-1]
 			print " #### Reading image category ", word, " ##### "
 			imlist[word] = []
-			for imagefile in glob(path+word+"/*"):
+			for imagefile in glob(path+"/"+word+"/*"):
 				print "Reading file ", imagefile
 				im = cv2.imread(imagefile, 0)
 				imlist[word].append(im)
