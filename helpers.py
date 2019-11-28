@@ -84,7 +84,8 @@ class BOVHelpers:
 		"""
 		vStack = np.array(l[0])
 		for remaining in l[1:]:
-			vStack = np.vstack((vStack, remaining))
+			if remaining is not None:
+				vStack = np.vstack((vStack, remaining))
 		self.descriptor_vstack = vStack.copy()
 		return vStack
 
