@@ -1,5 +1,5 @@
 # Bag-of-Visual-Words-Python #
-
+# This repo is no longer maintained
 ### This repository has been archived. It's just for learning purposes and will not be fixing issues / versioning / accepting PRs. Thanks for viewing the code / blog post!
 
 This is a python implementation of the Bag of Visual Words model. [Be sure to check it out on my blog](http://kushalvyas.github.io/BOV.html#BOV)
